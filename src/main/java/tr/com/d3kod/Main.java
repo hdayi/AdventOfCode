@@ -11,6 +11,7 @@ public class Main {
     // Day02.run();
     // Day03.run();
     // Day04.run();
-    tr.com.d3kod.y_2016.day01.Day01.run();
+    // tr.com.d3kod.y_2016.day01.Day01.run();
+    tr.com.d3kod.y_2017.day01.Day01.run();
   }
 }
