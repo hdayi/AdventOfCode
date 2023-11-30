@@ -13,6 +13,7 @@ public class Main {
     // Day04.run();
     // tr.com.d3kod.y_2016.day01.Day01.run();
     // tr.com.d3kod.y_2017.day01.Day01.run();
-    tr.com.d3kod.y_2018.day01.Day01.run();
+    // tr.com.d3kod.y_2018.day01.Day01.run();
+    tr.com.d3kod.y_2019.day01.Day01.run();
   }
 }

@@ -47,4 +47,27 @@ public class ReadFile {
     }
     return sonuc;
   }
+
+  public static List<Integer> readFileInt(String fileName) {
+    BufferedReader reader;
+    List<Integer> sonuc = new ArrayList<>();
+
+    try {
+      reader = new BufferedReader(new FileReader("./resources/" + fileName));
+      String line = reader.readLine();
+      sonuc.add(Integer.parseInt(line));
+
+      while (true) {
+        line = reader.readLine();
+        if (line == null)
+          break;
+        sonuc.add(Integer.parseInt(line));
+      }
+
+      reader.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+    return sonuc;
+  }
 }
