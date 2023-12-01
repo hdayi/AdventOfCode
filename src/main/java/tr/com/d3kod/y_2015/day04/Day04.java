@@ -3,7 +3,6 @@ package tr.com.d3kod.y_2015.day04;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Base64;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -39,7 +38,6 @@ public class Day04 {
         }
       }
     } catch (NoSuchAlgorithmException e) {
-      // TODO Auto-generated catch block
       e.printStackTrace();
     }
   }

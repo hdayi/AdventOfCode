@@ -35,7 +35,6 @@ public class Day01 {
     }
     // System.out.println(points);
     for (Point p : points) {
-      int a = Collections.frequency(points, p);
       if (Collections.frequency(points, p) == 2) {
         System.out.println("oleeee");
         System.out.println(p);
