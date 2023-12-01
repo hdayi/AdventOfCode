@@ -30,9 +30,9 @@ public class Day01 {
             break;
           }
         }
+
         if (result != 0)
           break;
-
       }
 
       if (result != 0)
