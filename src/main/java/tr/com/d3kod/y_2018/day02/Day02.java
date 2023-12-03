@@ -1,5 +1,6 @@
 package tr.com.d3kod.y_2018.day02;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -16,6 +17,35 @@ public class Day02 {
     System.out.println("Hello from 2018 day 02");
     input = ReadFile.readFile("18_day02.txt");
     stepOne();
+    stepTwo();
+  }
+
+  private static void stepTwo() {
+    boolean isFound = false;
+    for (int i = 0; i < input.size() - 1; i++) {
+      if (isFound) {
+        break;
+      }
+      var line = input.get(i);
+      for (int j = i + 1; j < input.size(); j++) {
+        int pos = -1;
+        var sLine = input.get(j);
+        var difCount = 0;
+        for (int k = 0; k < line.length(); k++) {
+          if (line.charAt(k) != sLine.charAt(k)) {
+            difCount++;
+            pos = k;
+          }
+        }
+        if (difCount == 1) {
+          StringBuilder sb = new StringBuilder(line);
+          line = sb.deleteCharAt(pos).toString();
+          System.out.println("2018 Day 02 Step 2: " + line);
+          isFound = true;
+          break;
+        }
+      }
+    }
   }
 
   private static void stepOne() {
