@@ -22,51 +22,21 @@ public class Day01 {
 
   private static void stepTwo() {
 
-    String[] rakamlar = {
-        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-        // "1", "2", "3", "4", "5", "6", "7", "8", "9",
-    };
-
-    // input.clear();
-    // input.add("two1nine");
-    // input.add("eightwothree");
-    // input.add("abcone2threexyz");
-    // input.add("xtwone3four");
-    // input.add("4nineeightseven2");
-    // input.add("zoneight234");
-    // input.add("7pqrstsixteen");
     int sum = 0;
-    Pattern p = Pattern.compile("\\d+");
+    String[] numWords = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+    String[] numReplace = { "o1e", "t2o", "t3e", "f4r", "f5e", "s6x", "s7n", "e8t", "n9e" };
 
     for (String line : input) {
-      String oldLine = line;
-      for (int i = 0; i < line.length(); i++) {
-        if (Character.isDigit(line.charAt(i))) {
-          continue;
-        }
-        for (int j = 0; j < rakamlar.length; j++) {
-          String rakam = rakamlar[j];
-          if (i + rakam.length() > line.length())
-            continue;
-          String sub = line.substring(i, i + rakam.length());
-          if (sub.indexOf(rakam) > -1) {
-            line = line.replaceFirst(rakam, Integer.toString(j));
-            break;
-          }
-        }
+
+      for (int index = 0; index < numWords.length; index++) {
+        line = line.replace(numWords[index], numReplace[index]);
       }
 
-      Matcher m = p.matcher(line);
-      String nums = "";
-      while (m.find()) {
-        nums += m.group();
-      }
-      int numForLine = Integer.parseInt(
-          Character.toString(nums.charAt(0))
-              + Character.toString(nums.charAt(nums.length() - 1)));
-      sum += numForLine;
+      line = line.replaceAll("\\D", "");
+      String firstInt = line.substring(0, 1);
+      String lastInt = line.substring(line.length() - 1);
+      sum += Integer.parseInt(firstInt + lastInt);
     }
-    //
     System.out.println("2023 Day 01 Step 2: " + sum);
   }
 
