@@ -25,6 +25,15 @@ public class Day02 {
     // "Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green"));
     convertGames();
     stepOne();
+    stepTwo();
+  }
+
+  private static void stepTwo() {
+    int sum = 0;
+    for (Game game : games) {
+      sum += game.getPower();
+    }
+    System.out.println("2023 Day02 setp 2: " + sum);
   }
 
   private static void stepOne() {
