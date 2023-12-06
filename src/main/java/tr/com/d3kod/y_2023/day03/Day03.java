@@ -29,8 +29,8 @@ public class Day03 {
     // ".....+.58.",
     // "..592.....",
     // "......755.",
-    // "...$.*....",
-    // ".664.598.."));
+    // "...$.*...w",
+    // "4664.598.8"));
     stepOne();
   }
 
@@ -62,6 +62,10 @@ public class Day03 {
     // bu dahil;
     int satirSon = i == input.size() - 1 ? i : i + 1;
     int sutunSon = j + num.length() >= input.get(i).length() - 1 ? input.get(i).length() - 1 : j + num.length();
+
+    for (int k = satirStart; k <= satirSon; k++) {
+      System.out.println(input.get(k).substring(satirStart, satirSon );
+    }
 
     for (int k = satirStart; k <= satirSon; k++) {
       for (int l = sutunStart; l <= sutunSon; l++) {
