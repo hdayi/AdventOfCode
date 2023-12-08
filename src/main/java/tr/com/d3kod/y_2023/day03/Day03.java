@@ -1,8 +1,5 @@
 package tr.com.d3kod.y_2023.day03;
 
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,14 +26,14 @@ public class Day03 {
     // ".....+.58.",
     // "..592.....",
     // "......755.",
-    // "...$.*...w",
-    // "4664.598.8"));
+    // "...$.*....",
+    // ".664.598.."));
     stepOne();
   }
 
   private static void stepOne() {
-    List<String> liste = new ArrayList<>();
     int sum = 0;
+    int sum2 = 0;
     Pattern p = Pattern.compile("\\d+");
 
     for (int i = 0; i < input.size(); i++) {
@@ -46,6 +43,7 @@ public class Day03 {
 
       while (m.find()) {
         String match = m.group(0);
+        sum2 += Integer.parseInt(match);
         int j = line.indexOf(match);
         if (isValidPart(i, j, match)) {
           sum += Integer.parseInt(match);
@@ -53,29 +51,35 @@ public class Day03 {
       }
     }
 
-    System.out.println("2023 Day 03 step 1: " + sum);
+    System.out.println("2023 Day 03 step 1: \t\t" + sum);
+    System.out.println("2023 Day 03 step 1 all of it: \t" + sum2);
   }
 
   private static boolean isValidPart(int i, int j, String num) {
-    int satirStart = i == 0 ? 0 : i - 1;
-    int sutunStart = j == 0 ? 0 : j - 1;
+    int satirStart = i == 0
+        ? 0
+        : i - 1;
+    int sutunStart = j == 0
+        ? 0
+        : j - 1;
     // bu dahil;
-    int satirSon = i == input.size() - 1 ? i : i + 1;
-    int sutunSon = j + num.length() >= input.get(i).length() - 1 ? input.get(i).length() - 1 : j + num.length();
+    int satirSon = i == input.size() - 1
+        ? i
+        : i + 1;
+    int sutunSon = j + num.length() >= input.get(i).length() - 1
+        ? input.get(i).length() - 1
+        : j + num.length();
 
-    for (int k = satirStart; k <= satirSon; k++) {
-      System.out.println(input.get(k).substring(satirStart, satirSon );
+    String line = input.get(satirStart).substring(sutunStart, sutunSon + 1);
+    if (satirStart + 1 <= satirSon) {
+      line += input.get(satirStart + 1).substring(sutunStart, sutunSon + 1);
     }
+    if (satirStart + 2 <= satirSon) {
+      line += input.get(satirStart + 2).substring(sutunStart, sutunSon + 1);
+    }
+    line = line.replaceAll("\\.", "").replaceAll("\\d", "");
 
-    for (int k = satirStart; k <= satirSon; k++) {
-      for (int l = sutunStart; l <= sutunSon; l++) {
-        char c = input.get(k).charAt(l);
-        if (!Character.isDigit(c) && c != '.') {
-          return true;
-        }
-      }
-    }
-    return false;
+    return line.length() > 0;
   }
 
 }
