@@ -48,6 +48,7 @@ public class Day03 {
     System.out.println("2023 Day 03 step 1: \t\t" + sum);
   }
 
+  // what if we return coordinate of star ????
   private static boolean isValidPart(int i, int j, String num) {
     int satirStart = i == 0
         ? 0
@@ -78,6 +79,11 @@ public class Day03 {
     }
 
     return line.length() > 0;
+  }
+
+  private static void stepTwo() {
+    int sum = 0;
+
   }
 
 }
