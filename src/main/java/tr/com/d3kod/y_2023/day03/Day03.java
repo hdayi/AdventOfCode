@@ -98,7 +98,7 @@ public class Day03 {
             return new Point(k, k2, true);
         }
       }
-    } else {
+    } else if (line.length() > 0) {
       return new Point(-1, -1, false);
     }
     return null;
