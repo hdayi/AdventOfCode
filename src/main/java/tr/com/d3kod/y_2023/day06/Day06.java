@@ -33,7 +33,7 @@ public class Day06 {
         toplam++;
       }
     }
-    System.out.println("2023 step 2 : " + toplam);
+    System.out.println("2023 Day 06 Step Two : " + toplam);
   }
 
   private static void stepOne() {
