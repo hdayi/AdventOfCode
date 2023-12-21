@@ -2,6 +2,8 @@ package tr.com.d3kod.y_2023.day07;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import tr.com.d3kod.util.ReadFile;
@@ -27,6 +29,27 @@ public class Day07 {
     for (String line : input) {
       hands.add(new Hand(line));
     }
-    System.out.println(hands);
+    Collections.sort(hands, new HandComparator());
+    stepOne();
   }
+
+  private static void stepOne() {
+    int sum = 0;
+    for (int i = 0; i < hands.size(); i++) {
+      sum += (i + 1) * hands.get(i).getBid();
+    }
+    System.out.println("2023 Day 07 step one: " + sum);
+  }
+}
+
+/**
+ * InnerDay07
+ */
+class HandComparator implements Comparator<Hand> {
+
+  @Override
+  public int compare(Hand h1, Hand h2) {
+    return h1.getValue() - h2.getValue();
+  }
+
 }
